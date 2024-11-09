@@ -171,7 +171,7 @@ namespace Lab1Client
 
         private async void SendMessageBtn_Click(object sender, EventArgs e)
         {
-            string user = "Client";
+            string user = "Client";  
             string message = ChatTextBox.Text;
 
             if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(message))
@@ -195,6 +195,12 @@ namespace Lab1Client
             connection = new HubConnectionBuilder()
                 .WithUrl("http://localhost:5000/chathub")
                 .Build();
+
+            /*connection.On<string, string>("ReceiveMessage", (user, message) =>
+            {
+                // Update chat box with incoming messages
+                ChatTextBox.AppendText($"{user}: {message}\n");
+            });*/
 
             await connection.StartAsync();
         }
