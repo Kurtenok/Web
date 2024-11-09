@@ -13,6 +13,7 @@ builder.Services.AddDbContext<LibraryContext>(options =>
 
 // Add SignalR before building the app
 builder.Services.AddSignalR();
+builder.Services.AddGrpc();
 
 var app = builder.Build();
 
@@ -23,7 +24,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseRouting();
-
+app.MapGrpcService<LibraryServiceImplementation>();
+//builder.Services.AddSingleton<LibraryServiceImplementation>();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();

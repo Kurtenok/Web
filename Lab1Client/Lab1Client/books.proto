@@ -1,0 +1,26 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Lab1Client";
+
+service BookService {
+    rpc AddBook (BookRequest) returns (BookResponse);
+    rpc GetBook (BookIdRequest) returns (BookResponse);
+    rpc UpdateBook (BookRequest) returns (BookResponse);
+    rpc DeleteBook (BookIdRequest) returns (BookResponse);
+}
+
+message BookRequest {
+    int32 id = 1;
+    string title = 2;
+    string author = 3;
+    int32 libraryNumber = 4;
+}
+
+message BookIdRequest {
+    int32 id = 1;
+}
+
+message BookResponse {
+    bool success = 1;
+    string message = 2;
+}
