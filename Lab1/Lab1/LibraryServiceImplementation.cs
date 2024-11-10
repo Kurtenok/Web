@@ -13,7 +13,6 @@ public class LibraryServiceImplementation : BookService.BookServiceBase
 
     public override async Task<BookResponse> AddBook(BookRequest request, ServerCallContext context)
     {
-        // Добавление книги в базу данных
         var book = new Book
         {
             Id = request.Id,

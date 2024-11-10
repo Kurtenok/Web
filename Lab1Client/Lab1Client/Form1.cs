@@ -127,7 +127,7 @@ namespace Lab1Client
         {
             int bookId = int.Parse(BookIDtextBox.Text);
 
-                
+
             string url = $"https://localhost:5129/api/books/{bookId}";
 
 
@@ -201,11 +201,6 @@ namespace Lab1Client
                 .WithUrl("https://localhost:5129/chathub")
                 .Build();
 
-            /*connection.On<string, string>("ReceiveMessage", (user, message) =>
-            {
-                // Update chat box with incoming messages
-                ChatTextBox.AppendText($"{user}: {message}\n");
-            });*/
 
             await connection.StartAsync();
         }
@@ -235,5 +230,35 @@ namespace Lab1Client
             }
         }
 
+        private async void gRPCFindBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (int.TryParse(BookIDtextBox.Text, out int bookId))
+                {
+
+                    var request = new BookIdRequest { Id = bookId };
+                    var response = await client2.GetBookAsync(request);
+
+                    if (response.Success)
+                    {
+                        MessageBox.Show($"Found book: {response.Message}");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Fail to found book");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Plase enter valid book id");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
     }
 }

@@ -46,6 +46,7 @@
             ChatTextBox = new TextBox();
             SendMessageBtn = new Button();
             gRPCCommitBtn = new Button();
+            gRPCFindBtn = new Button();
             SuspendLayout();
             // 
             // BookIDtextBox
@@ -184,7 +185,7 @@
             // ChatTextBox
             // 
             ChatTextBox.Location = new Point(751, 119);
-            ChatTextBox.Margin = new Padding(2, 2, 2, 2);
+            ChatTextBox.Margin = new Padding(2);
             ChatTextBox.Name = "ChatTextBox";
             ChatTextBox.Size = new Size(146, 23);
             ChatTextBox.TabIndex = 15;
@@ -192,7 +193,7 @@
             // SendMessageBtn
             // 
             SendMessageBtn.Location = new Point(785, 159);
-            SendMessageBtn.Margin = new Padding(2, 2, 2, 2);
+            SendMessageBtn.Margin = new Padding(2);
             SendMessageBtn.Name = "SendMessageBtn";
             SendMessageBtn.Size = new Size(78, 20);
             SendMessageBtn.TabIndex = 16;
@@ -210,11 +211,22 @@
             gRPCCommitBtn.UseVisualStyleBackColor = true;
             gRPCCommitBtn.Click += gRPCCommitBtn_Click;
             // 
+            // gRPCFindBtn
+            // 
+            gRPCFindBtn.Location = new Point(297, 53);
+            gRPCFindBtn.Name = "gRPCFindBtn";
+            gRPCFindBtn.Size = new Size(75, 29);
+            gRPCFindBtn.TabIndex = 18;
+            gRPCFindBtn.Text = "gRPCFind";
+            gRPCFindBtn.UseVisualStyleBackColor = true;
+            gRPCFindBtn.Click += gRPCFindBtn_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(920, 450);
+            Controls.Add(gRPCFindBtn);
             Controls.Add(gRPCCommitBtn);
             Controls.Add(SendMessageBtn);
             Controls.Add(ChatTextBox);
@@ -259,5 +271,6 @@
         private TextBox ChatTextBox;
         private Button SendMessageBtn;
         private Button gRPCCommitBtn;
+        private Button gRPCFindBtn;
     }
 }
